@@ -64,7 +64,7 @@ async function main () {
         // Construct the callback URL with the site identifier as a query parameter
         const callbackUrl = `${baseCallbackUrl}?site=${site}`;
 
-        oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
+        //oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
 
         
 
