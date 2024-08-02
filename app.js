@@ -7,7 +7,7 @@ require('dotenv').config();
 const OAuth = require('oauth-1.0a');
 const crypto = require('crypto');
 const qs = require('querystring');
-const axios = require('axios');
+//const axios = require('axios');
 const {
   oauth,
   getOAuthRequestToken,
