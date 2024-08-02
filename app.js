@@ -80,7 +80,7 @@ async function main () {
       } catch (error) {
         console.error('Error during Twitter authorization:', error.message);
         console.error('Error details:', error);
-        res.status(500).send('Error during Twitter authorization');
+        res.status(500).send('Error during Twitter authorization',error);
       }
     };
   }
