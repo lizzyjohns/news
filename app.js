@@ -4,8 +4,12 @@ const cookieParser = require('cookie-parser');
 const axios = require('axios');
 const baseCallbackUrl = 'http://127.0.0.1:3000/twitter/callback';
 require('dotenv').config();
-
+const OAuth = require('oauth-1.0a');
+const crypto = require('crypto');
+const qs = require('querystring');
+const axios = require('axios');
 const {
+  oauth,
   getOAuthRequestToken,
   getOAuthAccessTokenWith,
   oauthGetUserById,
@@ -56,6 +60,7 @@ async function main () {
   function twitter (method = 'authorize') {
     return async (req, res) => {
       try {
+        const oauth = require('oauth');
         const mainUrl = `${req.get('host')}`;
         //const { site } = req.body; // Get the site identifier from the request
 
