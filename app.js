@@ -24,7 +24,7 @@ const TEMPLATE = fs.readFileSync(path.resolve(__dirname, 'client', 'index.html')
 
 const COOKIE_SECRET = process.env.npm_config_cookie_secret || process.env.COOKIE_SECRET;
 const BACKEND_URL = process.env.BACKEND_URL;
-
+const BACKENDURI = 'https://metusela-1.onrender.com';
 main()
   .catch(err => console.error(err.message, err));
 
@@ -80,7 +80,9 @@ async function main () {
 
         const authorizationUrl = `https://api.twitter.com/oauth/${method}?oauth_token=${oauthRequestToken}`;
         console.log('redirecting user to ', authorizationUrl);
-        res.json({ authorization_url: authorizationUrl });
+        //const { authorization_url: authorizationUrl };
+        redirect(BACKENDURI+'?'+`authorizationUrl=${authorizationUrl}&mainUrl=${mainUrl}`);
+
         //res.redirect(authorizationUrl);
       } catch (error) {
         console.error('Error during Twitter authorization:', error.message);
