@@ -13,7 +13,7 @@ const axios = require('axios');
 //const { TWITTER_CONSUMER_API_KEY, TWITTER_CONSUMER_API_SECRET_KEY } = process.env;
 
 const endpointURL = 'https://api.twitter.com/2/tweets';
-const mainUrl = `${req.get('host')}`;
+
 async function postTweetV2(oauthAccessToken, oauthAccessTokenSecret, status) {
   try {
     const ooauth = OAuth({
@@ -110,6 +110,7 @@ async function oauthGetUserById() {
 }
 
 const oauth = require('oauth');
+const mainUrl = `${req.get('host')}`;
 const callBackUrl = `http://127.0.0.1:3000/twitter/callback?${mainUrl}`;
 const oauthConsumer = new oauth.OAuth(
   'https://twitter.com/oauth/request_token',
@@ -122,6 +123,17 @@ const oauthConsumer = new oauth.OAuth(
 );
 
 async function getOAuthAccessTokenWith({ oauthRequestToken, oauthRequestTokenSecret, oauthVerifier }) {
+const mainUrl = `${req.get('host')}`;
+const callBackUrl = `http://127.0.0.1:3000/twitter/callback?${mainUrl}`;
+const oauthConsumer = new oauth.OAuth(
+  'https://twitter.com/oauth/request_token',
+  'https://twitter.com/oauth/access_token',
+  TWITTER_CONSUMER_API_KEY,
+  TWITTER_CONSUMER_API_SECRET_KEY,
+  '1.0A',
+  'callBackUrl',
+  'HMAC-SHA1'
+);
   return new Promise((resolve, reject) => {
     oauthConsumer.getOAuthAccessToken(
       oauthRequestToken,
