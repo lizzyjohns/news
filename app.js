@@ -68,7 +68,7 @@ async function main () {
         const callbackUrl = `${baseCallbackUrl}?site=${mainUrl}`;
 
         oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
-
+        console.log(oauth._authorize_callback);
         console.log(`/twitter/${method}`);
         const { oauthRequestToken, oauthRequestTokenSecret } = await getOAuthRequestToken();
         console.log(`/twitter/${method} ->`, { oauthRequestToken, oauthRequestTokenSecret });
