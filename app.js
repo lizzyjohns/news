@@ -72,7 +72,7 @@ async function main () {
         // Send the authorization URL back to the site
         const authorizationUrl = `https://api.twitter.com/oauth/authorize?oauth_token=${oauthToken}`;
         //res.json({ authorization_url: authorizationUrl });
-    });
+    
         req.session = req.session || {};
         req.session.oauthRequestToken = oauthRequestToken;
         req.session.oauthRequestTokenSecret = oauthRequestTokenSecret;
