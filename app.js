@@ -57,10 +57,10 @@ async function main () {
     return async (req, res) => {
       try {
         const mainUrl = `${req.get('host')}`;
-        const { site } = req.body; // Get the site identifier from the request
+        //const { site } = req.body; // Get the site identifier from the request
 
         // Construct the callback URL with the site identifier as a query parameter
-        const callbackUrl = `${baseCallbackUrl}?site=${site}`;
+        const callbackUrl = `${baseCallbackUrl}?site=${mainUrl}`;
 
         oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
 
