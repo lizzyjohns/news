@@ -80,8 +80,8 @@ async function main () {
 
         const authorizationUrl = `https://api.twitter.com/oauth/${method}?oauth_token=${oauthRequestToken}`;
         console.log('redirecting user to ', authorizationUrl);
-        //res.json({ authorization_url: authorizationUrl });
-        res.redirect(authorizationUrl);
+        res.json({ authorization_url: authorizationUrl });
+        //res.redirect(authorizationUrl);
       } catch (error) {
         console.error('Error during Twitter authorization:', error.message);
         console.error('Error details:', error);
