@@ -159,7 +159,7 @@ return new Promise((resolve, reject) => {
 
 async function getOAuthRequestToken() {
   return new Promise((resolve, reject) => {
-    oauthConsumer.getOAuthRequestToken((mainUrl,error, oauthRequestToken, oauthRequestTokenSecret, results) => {
+    oauthConsumer.getOAuthRequestToken((error, oauthRequestToken, oauthRequestTokenSecret, results) => {
       if (error) {
         console.error('Error getting OAuth request token:', error);
         return reject(new Error('Error getting OAuth request token'));
