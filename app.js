@@ -56,23 +56,18 @@ async function main () {
   function twitter (method = 'authorize') {
     return async (req, res) => {
       try {
+        const mainUrl = `${req.get('host')}`;
+        const { site } = req.body; // Get the site identifier from the request
+
+        // Construct the callback URL with the site identifier as a query parameter
+        const callbackUrl = `${baseCallbackUrl}?site=${site}`;
+
+        oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
+
         console.log(`/twitter/${method}`);
         const { oauthRequestToken, oauthRequestTokenSecret } = await getOAuthRequestToken();
         console.log(`/twitter/${method} ->`, { oauthRequestToken, oauthRequestTokenSecret });
-        //const { site } = req.body; // Get the site identifier from the request
-
-        // Construct the callback URL with the site identifier as a query parameter
-        //const callbackUrl = `${baseCallbackUrl}?site=${site}`;
-
-        //oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
-
         
-
-        
-
-        // Send the authorization URL back to the site
-        //const authorizationUrl = `https://api.twitter.com/oauth/authorize?oauth_token=${oauthToken}`;
-        //res.json({ authorization_url: authorizationUrl });
     
         req.session = req.session || {};
         req.session.oauthRequestToken = oauthRequestToken;
