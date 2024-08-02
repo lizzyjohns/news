@@ -1,0 +1,46 @@
+{
+  "name": "twitter-oauth-login-in-nodejs",
+  "version": "1.0.0",
+  "description": "twitter-oauth-login-in-nodejs",
+  "main": "app.js",
+  "scripts": {
+    "start": "node $npm_package_main",
+    "fastify": "node fastify.js",
+    "connect": "node connect.js",
+    "node": "node",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christian-fei/twitter-oauth-login-in-nodejs.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/christian-fei/twitter-oauth-login-in-nodejs/issues"
+  },
+  "homepage": "https://github.com/christian-fei/twitter-oauth-login-in-nodejs#readme",
+  "dependencies": {
+    "axios": "^1.7.2",
+    "connect": "^3.7.0",
+    "cookie-parser": "^1.4.6",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "fastify": "^2.15.1",
+    "fastify-cookie": "^3.6.0",
+    "fastify-session": "^3.3.0",
+    "fs": "^0.0.1-security",
+    "got": "^13.0.0",
+    "i": "^0.3.7",
+    "oauth": "^0.9.15",
+    "oauth-1.0a": "^2.2.6",
+    "path": "^0.12.7",
+    "request": "^2.88.2",
+    "request-promise-native": "^1.0.9",
+    "twitter": "^1.7.1",
+    "twitter-api-v2": "^1.17.1",
+    "twitter-lite": "^1.1.0"
+  }
+}
