@@ -2,6 +2,7 @@ const express = require('express');
 const session = require('express-session');
 const cookieParser = require('cookie-parser');
 const axios = require('axios');
+const baseCallbackUrl = 'http://127.0.0.1:3000/twitter/callback';
 require('dotenv').config();
 
 const {
