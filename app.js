@@ -58,14 +58,28 @@ async function main () {
         console.log(`/twitter/${method}`);
         const { oauthRequestToken, oauthRequestTokenSecret } = await getOAuthRequestToken();
         console.log(`/twitter/${method} ->`, { oauthRequestToken, oauthRequestTokenSecret });
+        const { site } = req.body; // Get the site identifier from the request
 
+        // Construct the callback URL with the site identifier as a query parameter
+        const callbackUrl = `${baseCallbackUrl}?site=${site}`;
+
+        oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
+
+        
+
+        
+
+        // Send the authorization URL back to the site
+        const authorizationUrl = `https://api.twitter.com/oauth/authorize?oauth_token=${oauthToken}`;
+        //res.json({ authorization_url: authorizationUrl });
+    });
         req.session = req.session || {};
         req.session.oauthRequestToken = oauthRequestToken;
         req.session.oauthRequestTokenSecret = oauthRequestTokenSecret;
 
         const authorizationUrl = `https://api.twitter.com/oauth/${method}?oauth_token=${oauthRequestToken}`;
         console.log('redirecting user to ', authorizationUrl);
-        res.redirect(authorizationUrl);
+        res.json({ authorization_url: authorizationUrl });
       } catch (error) {
         console.error('Error during Twitter authorization:', error.message);
         console.error('Error details:', error);
