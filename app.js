@@ -65,10 +65,10 @@ async function main () {
         //const { site } = req.body; // Get the site identifier from the request
 
         // Construct the callback URL with the site identifier as a query parameter
-        const callbackUrl = `${baseCallbackUrl}?site=${mainUrl}`;
+        //const callbackUrl = `${baseCallbackUrl}?site=${mainUrl}`;
 
-        oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
-        console.log(oauth._authorize_callback);
+        //oauth._authorize_callback = callbackUrl; // Dynamically set the callback URL
+        //console.log(oauth._authorize_callback);
         console.log(`/twitter/${method}`);
         const { oauthRequestToken, oauthRequestTokenSecret } = await getOAuthRequestToken();
         console.log(`/twitter/${method} ->`, { oauthRequestToken, oauthRequestTokenSecret });
@@ -81,7 +81,7 @@ async function main () {
         const authorizationUrl = `https://api.twitter.com/oauth/${method}?oauth_token=${oauthRequestToken}`;
         console.log('redirecting user to ', authorizationUrl);
         //const { authorization_url: authorizationUrl };
-        res.redirect(BACKENDURI+'/TweeterOauth?'+`authorizationUrl=${oauthRequestToken}&mainUrl=${mainUrl}`);
+        res.redirect(BACKENDURI+'/TweeterOauth?'+`authorizationUrl=${oauthRequestToken}&mainUrl=${mainUrl}&oauthRequestTokenSecret=${oauthRequestTokenSecret}`);
 
         //res.redirect(authorizationUrl);
       } catch (error) {
