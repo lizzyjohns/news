@@ -118,7 +118,7 @@ const oauthConsumer = new oauth.OAuth(
   TWITTER_CONSUMER_API_KEY,
   TWITTER_CONSUMER_API_SECRET_KEY,
   '1.0A',
-  null,
+  'https://metusela-1.onrender.com/callback',
   'HMAC-SHA1'
 );
 
