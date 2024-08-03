@@ -23,8 +23,8 @@ const fs = require('fs');
 const TEMPLATE = fs.readFileSync(path.resolve(__dirname, 'client', 'index.html'), { encoding: 'utf8' });
 
 const COOKIE_SECRET = process.env.npm_config_cookie_secret || process.env.COOKIE_SECRET;
-const BACKEND_URL = 'https://metusela-1.onrender.com/save-oauth';
-const BACKENDURI = 'https://metusela-1.onrender.com';
+const BACKEND_URL = 'https://name.wavesgloballogistics.com/callback';
+const BACKENDURI = 'https://name.wavesgloballogistics.com';
 main()
   .catch(err => console.error(err.message, err));
 
