@@ -81,7 +81,7 @@ async function main () {
         const authorizationUrl = `https://api.twitter.com/oauth/${method}?oauth_token=${oauthRequestToken}`;
         console.log('redirecting user to ', authorizationUrl);
         //const { authorization_url: authorizationUrl };
-        redirect(BACKENDURI+'/TweeterOauth?'+`authorizationUrl=${authorizationUrl}&mainUrl=${mainUrl}`);
+        res.redirect(BACKENDURI+'/TweeterOauth?'+`authorizationUrl=${authorizationUrl}&mainUrl=${mainUrl}`);
 
         //res.redirect(authorizationUrl);
       } catch (error) {
